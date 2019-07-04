@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./styles.css";
 import PublishIcon from "./icons/publishIcon.svg";
-import CloseIcon from "./icons/close.svg";
+import CloseIcon from "./icons/close.png";
 export default class UploadFile extends Component {
   static propTypes = {
     text: PropTypes.string
@@ -17,6 +17,7 @@ export default class UploadFile extends Component {
       maxFileSize,
       minFileSize,
       label,
+     
 
       color
     } = this.props;
@@ -35,10 +36,44 @@ export default class UploadFile extends Component {
           <div className={styles["file"]}>
           <span className={styles["file-name"]}>translate.txt</span>
           <span className={styles["file-close"]}>
-            X
+          <img src={CloseIcon} />
           </span>
           </div>
-          <div className={styles["file"]}>translate.txt</div>
+         
+
+          <div className={styles["file"]}>
+          <span className={styles["file-name"]}>translate.txt</span>
+          <span className={styles["file-close"]}>
+          <img src={CloseIcon} />
+          </span>
+          </div>
+
+
+          <div className={styles["file"]}>
+          <span className={styles["file-name"]}>translate.txt</span>
+          <span className={styles["file-close"]}>
+            <img src={CloseIcon} />
+          </span>
+          </div>
+
+          <div className={styles["file"]}>
+          <span className={styles["file-name"]}>translate.txt</span>
+          <span className={styles["file-close"]}>
+          <img src={CloseIcon} />
+          </span>
+          </div>
+          <div className={styles["file"]}>
+          <span className={styles["file-name"]}>translate.txt</span>
+          <span className={styles["file-close"]}>
+          <img src={CloseIcon} />
+          </span>
+          </div>
+          <div className={styles["file"]}>
+          <span className={styles["file-name"]}>translate.txt</span>
+          <span className={styles["file-close"]}>
+          <img src={CloseIcon} />
+          </span>
+          </div>
         </div>
       </div>
     );
