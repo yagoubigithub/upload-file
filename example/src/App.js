@@ -11,9 +11,8 @@ export default class App extends Component {
       <br />
       <br />
          <UploadFile   
-        accepts={['image/png', '.pdf', 'audio/*']}
-          multiple
-          maxFiles={3}
+        accepts={['image/png', '.pdf', 'audio/*', 'text/plain', 'image/jpeg']}
+         
           maxFileSize={10000000}
           minFileSize={0}
          

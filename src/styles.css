@@ -3,6 +3,12 @@
   display: flex;
   flex-wrap: nowrap;
 }
+.btn-upload-container > *{
+  cursor: pointer;
+}
+.btn-upload > *{
+  cursor: pointer;
+}
 .btn-upload {
   border: 0;
   color: white;
@@ -27,6 +33,9 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+}
+.files-container > *{
+cursor: pointer;
 }
 .file {
   display: flex;

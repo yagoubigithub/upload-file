@@ -8,19 +8,40 @@ export default class UploadFile extends Component {
   static propTypes = {
     text: PropTypes.string
   };
-
   state = {
     files: []
   };
+  TestAccepts = (accept,accepts) =>{
+    return accepts.filter(a=>a === accept).length > 0;
+
+  }
   onchange = file => {
-    let files = [...this.state.files];
-    if(!this.props.multiple){
-      files=[];
-     
+    if(file.length > 0){
+      console.log(file[0]);
+      let files = [...this.state.files];
+      if(this.TestAccepts(file[0].type,this.props.accepts)){
+        if(!this.props.multiple){
+          files=[];
+        }
+        console.log(this.props.maxFiles !== undefined);
+        if(this.props.maxFiles !== undefined){
+          
+          if(files.length < this.props.maxFiles){
+            files.push(file[0]);
+            this.setState({ files });
+          }else{
+            //error maxFiles
+          }
+        }else{
+          files.push(file[0]);
+            this.setState({ files });
+        }
+       
+      }else{
+        //file not accepts error
+      }
+      
     }
-    files.push(file[0]);
-   
-    this.setState({ files });
   };
   removeFile = index =>{
     const files = [...this.state.files];
