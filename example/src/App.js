@@ -12,12 +12,12 @@ export default class App extends Component {
       <br />
          <UploadFile   
         accepts={['image/png', '.pdf', 'audio/*']}
-          multiple={false}
+          multiple
           maxFiles={3}
           maxFileSize={10000000}
           minFileSize={0}
-          label={"upload images.."}
-          color="#F24"
+         
+          
          />
       </div>
     )

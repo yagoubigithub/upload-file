@@ -13,7 +13,11 @@ export default class UploadFile extends Component {
     files: []
   };
   onchange = file => {
-    const files = [...this.state.files];
+    let files = [...this.state.files];
+    if(!this.props.multiple){
+      files=[];
+     
+    }
     files.push(file[0]);
    
     this.setState({ files });
@@ -25,7 +29,7 @@ export default class UploadFile extends Component {
   }
 
   render() {
-    const {
+    let {
       accepts,
       multiple,
       maxFiles,
@@ -34,6 +38,8 @@ export default class UploadFile extends Component {
       label,
       color
     } = this.props;
+    label = label ? label : "upload file ..";
+    color  = color ? color : "#0074D9";
 
     return (
       <div className={styles["btn-upload-container"]}>
@@ -41,7 +47,10 @@ export default class UploadFile extends Component {
           className={styles["btn-upload"]}
           style={{ backgroundColor: color }}
         >
-          <img src={PublishIcon} className={styles["svg-icon"]} />
+        <label htmlFor="fileupload">
+        <img src={PublishIcon} className={styles["svg-icon"]}  />
+        </label>
+         
           <input
             type="file"
             onChange={ref => this.onchange(ref.target.files)}
@@ -51,7 +60,7 @@ export default class UploadFile extends Component {
           <label htmlFor="fileupload">{label}</label>
         </button>
         <div className={styles["files-container"]}>
-        {this.state.files.map((file,index)=>{
+        {this.state.files.length > 0 ?this.state.files.map((file,index)=>{
           return(
             <div className={styles["file"]} key={index}>
             <span className={styles["file-name"]}>{file.name}</span>
@@ -61,41 +70,20 @@ export default class UploadFile extends Component {
           </div>
           );
 
-        })}
+        }) :  <label htmlFor="fileupload" className={styles["placeholder"]}>{label}</label>}
+         {/**  <div className={styles["file"]}>
+            <span className={styles["file-name"]}>translate.txt</span>
+            <span className={styles["file-close"]}>
+              <img src={CloseIcon} />
+            </span>
+          </div> */}
+
          
 
-          <div className={styles["file"]}>
-            <span className={styles["file-name"]}>translate.txt</span>
-            <span className={styles["file-close"]}>
-              <img src={CloseIcon} />
-            </span>
-          </div>
 
-          <div className={styles["file"]}>
-            <span className={styles["file-name"]}>translate.txt</span>
-            <span className={styles["file-close"]}>
-              <img src={CloseIcon} />
-            </span>
-          </div>
-
-          <div className={styles["file"]}>
-            <span className={styles["file-name"]}>translate.txt</span>
-            <span className={styles["file-close"]}>
-              <img src={CloseIcon} />
-            </span>
-          </div>
-          <div className={styles["file"]}>
-            <span className={styles["file-name"]}>translate.txt</span>
-            <span className={styles["file-close"]}>
-              <img src={CloseIcon} />
-            </span>
-          </div>
-          <div className={styles["file"]}>
-            <span className={styles["file-name"]}>translate.txt</span>
-            <span className={styles["file-close"]}>
-              <img src={CloseIcon} />
-            </span>
-          </div>
+          
+         
+         
         </div>
       </div>
     );
