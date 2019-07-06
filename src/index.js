@@ -11,6 +11,10 @@ export default class UploadFile extends Component {
   state = {
     files: []
   };
+  onError = error =>{
+    console.log(error);
+    return error;
+  }
   TestAccepts = (accept, accepts) => {
     return accepts.filter(a => a === accept).length > 0;
   };
@@ -38,6 +42,10 @@ export default class UploadFile extends Component {
                       this.setState({ files });
                     } else {
                       //error maxFiles
+                     this.onError({
+                       type : "maxFiles",
+                       message :  "The maximum number of files is : " + this.props.maxFiles
+                     })
                     }
                   } else {
                     //fourth else
@@ -46,6 +54,10 @@ export default class UploadFile extends Component {
                   }
                 } else {
                   //error min size
+                  this.onError({
+                    type : "minFileSize",
+                    message :  "The minimum size of file is : " + this.props.minFileSize
+                  })
                 }
               } else {
                 //third else
@@ -56,6 +68,10 @@ export default class UploadFile extends Component {
                     this.setState({ files });
                   } else {
                     //error maxFiles
+                    this.onError({
+                      type : "maxFiles",
+                      message :  "The maximum number of files is : " + this.props.maxFiles
+                    })
                   }
                 } else {
                  
@@ -65,6 +81,10 @@ export default class UploadFile extends Component {
               }
             } else {
               //error max size
+              this.onError({
+                type : "maxFileSize",
+                message :  "The maximum size of file is : " + this.props.maxFileSize
+              })
             }
           } else {
             //second else
@@ -76,7 +96,11 @@ export default class UploadFile extends Component {
                     files.push(file[0]);
                     this.setState({ files });
                   } else {
-                    //error maxFiles
+                     //error maxFiles
+                     this.onError({
+                      type : "maxFiles",
+                      message :  "The maximum number of files is : " + this.props.maxFiles
+                    })
                   }
                 } else {
                   //fourth else
@@ -85,6 +109,10 @@ export default class UploadFile extends Component {
                 }
               } else {
                 //error min size
+                this.onError({
+                  type : "minFileSize",
+                  message :  "The minimum size of file is : " + this.props.minFileSize
+                })
               }
             } else {
               
@@ -94,7 +122,12 @@ export default class UploadFile extends Component {
                   files.push(file[0]);
                   this.setState({ files });
                 } else {
-                  //error maxFiles
+                
+                   //error maxFiles
+                   this.onError({
+                    type : "maxFiles",
+                    message :  "The maximum number of files is : " + this.props.maxFiles
+                  })
                 }
               } else {
                
@@ -105,6 +138,11 @@ export default class UploadFile extends Component {
           }
         } else {
           //file not accepts error
+           //error maxFiles
+           this.onError({
+            type : "accepts",
+            message :    `This type : ${file[0].type} of file not accepted` 
+          })
           
         }
       } else {
@@ -121,7 +159,12 @@ export default class UploadFile extends Component {
                     files.push(file[0]);
                     this.setState({ files });
                   } else {
-                    //error maxFiles
+                    
+                      //error maxFiles
+                   this.onError({
+                    type : "maxFiles",
+                    message :  "The maximum number of files is : " + this.props.maxFiles
+                  })
                   }
                 } else {
                   //fourth else
@@ -130,6 +173,10 @@ export default class UploadFile extends Component {
                 }
               } else {
                 //error min size
+                this.onError({
+                  type : "minFileSize",
+                  message :  "The minimum size of file is : " + this.props.minFileSize
+                })
               }
             } else {
               //third else
@@ -139,7 +186,12 @@ export default class UploadFile extends Component {
                   files.push(file[0]);
                   this.setState({ files });
                 } else {
+                 
                   //error maxFiles
+                  this.onError({
+                    type : "maxFiles",
+                    message :  "The maximum number of files is : " + this.props.maxFiles
+                  })
                 }
               } else {
                
@@ -148,7 +200,11 @@ export default class UploadFile extends Component {
               }
             }
           } else {
-            //error max size
+             //error max size
+             this.onError({
+              type : "maxFileSize",
+              message :  "The maximum size of file is : " + this.props.maxFileSize
+            })
           }
         } else {
           //second else
@@ -160,7 +216,12 @@ export default class UploadFile extends Component {
                   files.push(file[0]);
                   this.setState({ files });
                 } else {
+                  
                   //error maxFiles
+                  this.onError({
+                    type : "maxFiles",
+                    message :  "The maximum number of files is : " + this.props.maxFiles
+                  })
                 }
               } else {
                 //fourth else
@@ -168,7 +229,11 @@ export default class UploadFile extends Component {
                   this.setState({ files });
               }
             } else {
-              //error min size
+             //error min size
+             this.onError({
+              type : "minFileSize",
+              message :  "The minimum size of file is : " + this.props.minFileSize
+            })
             }
           } else {
             
@@ -178,7 +243,11 @@ export default class UploadFile extends Component {
                 files.push(file[0]);
                 this.setState({ files });
               } else {
-                //error maxFiles
+                 //error maxFiles
+                 this.onError({
+                  type : "maxFiles",
+                  message :  "The maximum number of files is : " + this.props.maxFiles
+                })
               }
             } else {
              
