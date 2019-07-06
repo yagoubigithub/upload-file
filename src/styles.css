@@ -3,26 +3,24 @@
   display: flex;
   flex-wrap: nowrap;
 }
-.btn-upload-container > *{
+.btn-upload-container > * {
   cursor: pointer;
 }
-.btn-upload > *{
+.btn-upload > * {
   cursor: pointer;
 }
 .btn-upload {
-
   border: 0;
-  
+
   color: white;
   font-size: 18px;
   font-weight: 500;
- 
+
   border-radius: 2px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
   display: flex;
- 
 }
-.btn-upload label{
+.btn-upload label {
   padding: 6px 14px;
   display: flex;
   justify-content: center;
@@ -35,30 +33,30 @@
 }
 .files-container {
   border: 1px solid rgba(0, 0, 0, 0.4);
-  flex : 1;
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
- 
 }
-.files-container > *{
-cursor: pointer;
+.files-container > * {
+  cursor: pointer;
 }
 .file {
   display: flex;
-
- margin: 1px;
- overflow: hidden;
- border-radius: 4px;
-
+  background-color: #e2e2e2;
+  padding: 2px;
+  margin: 1px;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   color: rgba(0, 0, 0, 0.5);
 }
 .file-name {
-  background-color: #e2e2e2;
   height: 20px;
-  border :1px solid blue;
   padding-right: 5px;
+  padding-left: 5px;
+  word-break: break-all;
 }
 .file-close {
   width: 20px;
@@ -73,7 +71,7 @@ cursor: pointer;
 .file-close:hover {
   background-color: rgba(150, 0, 0, 0.4);
 }
-.placeholder{
+.placeholder {
   color: rgba(0, 0, 0, 0.5);
   padding-left: 4px;
   width: 100%;

@@ -12,8 +12,9 @@ export default class UploadFile extends Component {
     files: []
   };
   onError = error =>{
-    console.log(error);
-    return error;
+    if(this.props.onError !== undefined)
+     this.props.onError(error);
+    
   }
   TestAccepts = (accept, accepts) => {
     return accepts.filter(a => a === accept).length > 0;
@@ -259,6 +260,8 @@ export default class UploadFile extends Component {
         
       }
     }
+    if(this.props.onChange !== undefined)
+    this.props.onChange(files);
   };
   removeFile = index => {
     const files = [...this.state.files];
