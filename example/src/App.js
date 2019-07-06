@@ -15,6 +15,7 @@ export default class App extends Component {
          
           maxFileSize={10000000}
           minFileSize={0}
+          multiple
          
           
          />
